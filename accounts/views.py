@@ -5,6 +5,7 @@ from django.shortcuts import redirect, render
 from vendor.forms import VendorForm
 from .forms import UserForm
 from .models import User, UserProfile
+from vendor.models import Vendor
 from django.contrib import messages, auth
 from .utils import detectUser, send_verification_email
 
