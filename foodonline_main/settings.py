@@ -153,4 +153,4 @@ EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'FoodOnline Marketplace <top10list145@gmail.com>'
 
-GOOGLE_API_KEY = 'AIzaSyAbohbdaJ48heZ9v9oSPTC8Rao-esyOSRY'
+GOOGLE_API_KEY = ''
