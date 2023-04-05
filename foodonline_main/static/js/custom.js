@@ -5,8 +5,8 @@ autocomplete = new google.maps.places.Autocomplete(
     document.getElementById('id_address'),
     {
         types: ['geocode', 'establishment'],
-        //default in this app is "IN" - add your country code
-        componentRestrictions: {'country': ['in']},
+        //default in this app is "pak" - add your country code
+        componentRestrictions: {'country': ['pk']},
     })
 // function to specify what should happen when the prediction is clicked
 autocomplete.addListener('place_changed', onPlaceChanged);
@@ -45,7 +45,7 @@ function onPlaceChanged (){
     });
 
     // loop through the address components and assign other address data
-    console.log(place.address_components);
+    // console.log(place.address_components);
     for(var i=0; i<place.address_components.length; i++){
         for(var j=0; j<place.address_components[i].types.length; j++){
             // get country
