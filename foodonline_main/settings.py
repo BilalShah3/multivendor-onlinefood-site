@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
-    'vendor.apps.VendorConfig'
+    'vendor.apps.VendorConfig',
+    'menu.apps.MenuConfig'
 ]
 
 MIDDLEWARE = [
@@ -153,4 +154,4 @@ EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'FoodOnline Marketplace <top10list145@gmail.com>'
 
-GOOGLE_API_KEY = ''
+GOOGLE_API_KEY = env.str('GOOGLE_API_KEY')

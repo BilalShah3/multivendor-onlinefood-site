@@ -136,9 +136,20 @@ def login(request):
     elif request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
-
+        # auth.authenticate return none for inactive user and invalid credentials if the user is inactive then we need to check if the user is active or not
+        if User.objects.filter(email=email).exists():
+            user = User.objects.get(email=email)
+            if user.is_active == False:
+                messages.error(request, 'Your account is not activated yet. Please check your email for the activation link.')
+                return redirect('login')
         user = auth.authenticate(email=email, password=password)
-
+        # check vendor isapproved or not
+        if user is not None and user.role == User.VENDOR:
+            vendor = Vendor.objects.get(user=user)
+            if vendor.is_approved == False:
+                messages.error(request, 'Your account is not approved yet. Please wait for the approval.')
+                return redirect('login')
+        print(user)
         if user is not None:
             auth.login(request, user)
             messages.success(request, 'You are now logged in.')
