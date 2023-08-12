@@ -6,6 +6,7 @@ from vendor.forms import VendorForm
 from .forms import UserForm
 from .models import User, UserProfile
 from vendor.models import Vendor
+from django.template.defaultfilters import slugify
 from django.contrib import messages, auth
 from .utils import detectUser, send_verification_email
 
@@ -32,7 +33,10 @@ def check_role_customer(user):
 # Create your views here.
 
 def registerUser(request):
-    if request.method == 'POST':
+    if request.user.is_authenticated:
+        messages.warning(request, 'You are already logged in!')
+        return  redirect('myAccount')
+    elif request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
             # Create the user using the form
@@ -56,7 +60,7 @@ def registerUser(request):
             mail_subject = 'Please activate your account'
             email_template = 'accounts/emails/account_verification_email.html'
             send_verification_email(request, user, mail_subject, email_template)
-            messages.success(request, 'Your account has been registered sucessfully!')
+            messages.success(request, 'Your account has been registered sucessfully! check your email for the activation link.')
             return redirect('registerUser')
         else:
             print('invalid form')
@@ -70,7 +74,10 @@ def registerUser(request):
 
 
 def registerVendor(request):
-    if request.method == 'POST':
+    if request.user.is_authenticated:
+        messages.warning(request, 'You are already logged in!')
+        return redirect('myAccount')
+    elif request.method == 'POST':
         # store the data and create the user
         form = UserForm(request.POST)
         v_form = VendorForm(request.POST, request.FILES)
@@ -85,6 +92,8 @@ def registerVendor(request):
             user.save()
             vendor = v_form.save(commit=False)
             vendor.user = user
+            vendor_name = v_form.cleaned_data['vendor_name']
+            vendor.vendor_slug = slugify(vendor_name)+'-'+str(user.id)
             user_profile = UserProfile.objects.get(user=user)
             vendor.user_profile = user_profile
             vendor.save()
@@ -144,12 +153,12 @@ def login(request):
                 return redirect('login')
         user = auth.authenticate(email=email, password=password)
         # check vendor isapproved or not
-        if user is not None and user.role == User.VENDOR:
-            vendor = Vendor.objects.get(user=user)
-            if vendor.is_approved == False:
-                messages.error(request, 'Your account is not approved yet. Please wait for the approval.')
-                return redirect('login')
-        print(user)
+        # if user is not None and user.role == User.VENDOR:
+        #     vendor = Vendor.objects.get(user=user)
+        #     if vendor.is_approved == False:
+        #         messages.error(request, 'Your account is not approved yet. Please wait for the approval.')
+        #         return redirect('login')
+        # print(user)
         if user is not None:
             auth.login(request, user)
             messages.success(request, 'You are now logged in.')

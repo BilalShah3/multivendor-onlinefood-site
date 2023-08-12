@@ -87,7 +87,6 @@ $(document).ready(function(){
             type: 'GET',
             url: url,
             success: function(response){
-                console.log(response)
                 if(response.status == 'login_required'){
                     swal(response.message, '', 'info').then(function(){
                         window.location = '/login';
@@ -130,7 +129,6 @@ $(document).ready(function(){
             type: 'GET',
             url: url,
             success: function(response){
-                console.log(response)
                 if(response.status == 'login_required'){
                     swal(response.message, '', 'info').then(function(){
                         window.location = '/login';
@@ -170,7 +168,6 @@ $(document).ready(function(){
             type: 'GET',
             url: url,
             success: function(response){
-                console.log(response)
                 if(response.status == 'Failed'){
                     swal(response.message, '', 'error')
                 }else{
@@ -215,7 +212,6 @@ $(document).ready(function(){
             $('#subtotal').html(subtotal)
             $('#total').html(grand_total)
 
-            console.log(tax_dict)
             for(key1 in tax_dict){
                 console.log(tax_dict[key1])
                 for(key2 in tax_dict[key1]){
