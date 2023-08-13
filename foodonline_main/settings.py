@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import environ
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'vendor.apps.VendorConfig',
     'menu.apps.MenuConfig',
     'marketplace.apps.MarketplaceConfig',
+    'django.contrib.gis',
 ]
 
 MIDDLEWARE = [
@@ -85,7 +87,8 @@ WSGI_APPLICATION = 'foodonline_main.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': env.str('DB_NAME', ''),
         'USER': env.str('DB_USER', ''),
         'PASSWORD': env.str('DB_PASSWORD', ''),
@@ -158,3 +161,7 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'FoodOnline Marketplace <top10list145@gmail.com>'
 
 GOOGLE_API_KEY = env.str('GOOGLE_API_KEY')
+
+os.environ['PATH'] = os.path.join(BASE_DIR, 'venv\Lib\site-packages\osgeo') + ';' + os.environ['PATH']
+os.environ['PROJ_LIB'] = os.path.join(BASE_DIR, 'venv\Lib\site-packages\osgeo\data\proj') + ';' + os.environ['PATH']
+GDAL_LIBRARY_PATH = os.path.join(BASE_DIR, 'venv\Lib\site-packages\osgeo\gdal304.dll')
