@@ -47,7 +47,6 @@ function onPlaceChanged (){
     });
 
     // loop through the address components and assign other address data
-    console.log(place.address_components);
     for(var i=0; i<place.address_components.length; i++){
         for(var j=0; j<place.address_components[i].types.length; j++){
             // get country
@@ -213,7 +212,6 @@ $(document).ready(function(){
             $('#total').html(grand_total)
 
             for(key1 in tax_dict){
-                console.log(tax_dict[key1])
                 for(key2 in tax_dict[key1]){
                     // console.log(tax_dict[key1][key2])
                     $('#tax-'+key1).html(tax_dict[key1][key2])
@@ -231,8 +229,6 @@ $(document).ready(function(){
         var is_closed = document.getElementById('id_is_closed').checked
         var csrf_token = $('input[name=csrfmiddlewaretoken]').val()
         var url = document.getElementById('add_hour_url').value
-
-        console.log(day, from_hour, to_hour, is_closed, csrf_token)
 
         if(is_closed){
             is_closed = 'True'
