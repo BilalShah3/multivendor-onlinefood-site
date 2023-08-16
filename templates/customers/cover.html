@@ -21,14 +21,12 @@
                         <div class="text-holder">
                             <span class="restaurant-title">{{ user.first_name }} {{ user.last_name }}</span>
                             <div class="text">
-                                {% if user_profile.address %}
-                                <i class="icon-location"></i>
-                                <p>{{user_profile.address}}</p>
-                                {% endif %}
+                                <i class="icon-envelope"></i>
+                                <p>{{ user.email }}</p>
                             </div>
                             <div class="text">
                                 <i class="icon-phone"></i>
-                                <p>Phone No: {{ user.phone_number }}</p>
+                                <p>{{ user.phone_number }}</p>
                             </div>
                         </div>
                     </div>
