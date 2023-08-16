@@ -193,7 +193,12 @@
         if(!payMethod){
             $('#payment-method-error').html("Select Payment Method!");
             return false;
-        }else{
+        }
+        else if(payMethod == 'Stripe'){
+            $('#payment-method-error').html("This payment method is not available at the moment!");
+            return false;
+        }
+        else{
             var conf = confirm('You have selected '+payMethod+' as your preferred payment method.\nClick "OK" to continue.')
             if(conf == true){
                 return true;
