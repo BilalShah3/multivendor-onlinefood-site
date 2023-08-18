@@ -104,7 +104,7 @@ def registerVendor(request):
             email_template = 'accounts/emails/account_verification_email.html'
             send_verification_email(request, user, mail_subject, email_template)
 
-            messages.success(request, 'Your account has been registered sucessfully! Please wait for the approval.')
+            messages.success(request, 'Your account has been registered sucessfully! Please wait for the approval.  Once your restaurant approved it is published to market place ')
             return redirect('registerVendor')
         else:
             print('invalid form')
