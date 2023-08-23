@@ -1,48 +1,49 @@
 # multivendor-onlinefood-site
 
 Multi-vendor restaurant marketplace website with features like location-based search functionality, the ability to find nearby restaurants, and various other complex features.
+Demo: https://foodonlinepanda.me/
 
 # Features
 
-Configure a PostgreSQL database
+(1) Configure a PostgreSQL database
 
-Implement custom user models, static files, media files, and Django signals
+(2) Implement custom user models, static files, media files, and Django signals
 
-Enable user registration, display Django messages and errors
+(3) Enable user registration, display Django messages and errors
 
-Implement vendor registration and authentication
+(4) Implement vendor registration and authentication
 
-Verify tokens and configure email
+(5) Verify tokens and configure email
 
-Allow for vendor approval by an administrator and provide dashboards
+(6) Allow for vendor approval by an administrator and provide dashboards
 
-Create a form for building a restaurant profile and implement custom validators
+(7) Create a form for building a restaurant profile and implement custom validators
 
-Integrate a Google Autocomplete field
+(8) Integrate a Google Autocomplete field
 
-Implement category and food item CRUD functionalities in the menu builder
+(9) Implement category and food item CRUD functionalities in the menu builder
 
-Include a marketplace feature
+(10) Include a marketplace feature
 
-Implement cart functionalities through AJAX requests and on the frontend
+(11) Implement cart functionalities through AJAX requests and on the frontend
 
-Provide basic and advanced search options
+(12) Provide basic and advanced search options
 
-Enable location-based searches for nearby restaurants
+(13) Enable location-based searches for nearby restaurants
 
-Create a dynamic module for business hours with AJAX
+(14) Create a dynamic module for business hours with AJAX
 
-Develop a dynamic tax module
+(15) Develop a dynamic tax module
 
-Develop a customer app and profile building functionality
+(16) Develop a customer app and profile building functionality
 
-Implement an order model and checkout page
+(17) Implement an order model and checkout page
 
-Enable order placement and generate order numbers
+(18) Enable order placement and generate order numbers
 
-Integrate the PayPal payment gateway
+(19) Integrate the PayPal payment gateway
 
-Implement post-order functionality
+(20) Implement post-order functionality
 
 Implement a many-to-many relationship and a vendor dashboard
 
