@@ -45,10 +45,10 @@ Demo: https://foodonlinepanda.me/
 
 (20) Implement post-order functionality
 
-Implement a many-to-many relationship and a vendor dashboard
+(21) Implement a many-to-many relationship and a vendor dashboard
 
-Implement custom middleware, total revenue tracking per vendor, and current month's revenue tracking
+(22) Implement custom middleware, total revenue tracking per vendor, and current month's revenue tracking
 
-Integrate email templates
+(23) Integrate email templates
 
-Make the site mobile-friendly through responsive design
+(24) Make the site mobile-friendly through responsive design
