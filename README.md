@@ -52,3 +52,6 @@ Demo: https://foodonlinepanda.me/
 (23) Integrate email templates
 
 (24) Make the site mobile-friendly through responsive design
+
+# Setup
+
